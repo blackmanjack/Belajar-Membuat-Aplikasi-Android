@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -34,11 +36,12 @@ public class MainActivity extends AppCompatActivity {
         ListHpAdapter listHpAdapter = new ListHpAdapter(list);
         rvHp.setAdapter(listHpAdapter);
 
-
         listHpAdapter.setOnItemClickCallback(new ListHpAdapter.OnItemClickCallback() {
             @Override
             public void onItemClicked(Hp data) {
-                showSelectedHp(data);
+                Intent moveIntent1 = new Intent(MainActivity.this, Detail.class);
+                moveIntent1.putExtra(Detail.ITEM_EXTRA, (Parcelable) data);
+                startActivity(moveIntent1);
             }
         });
 

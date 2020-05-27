@@ -48,12 +48,11 @@ public class ListHpAdapter extends RecyclerView.Adapter<ListHpAdapter.ListViewHo
                 .into(holder.imgPhoto);
         holder.tvName.setText(hp.getName());
         holder.tvDetail.setText(hp.getDetail());
+        holder.tvPrice.setText(hp.getPrice());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, DetailActivity.class)
-                        .putExtra(DetailActivity.INTENT_DATA, hp.get(i)));
                 onItemClickCallback.onItemClicked(listHp.get(holder.getAdapterPosition()));
             }
         });
@@ -70,12 +69,13 @@ public class ListHpAdapter extends RecyclerView.Adapter<ListHpAdapter.ListViewHo
 
     class ListViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
-        TextView tvName, tvDetail;
+        TextView tvName, tvDetail, tvPrice;
 
         ListViewHolder(View itemView) {
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
             tvName = itemView.findViewById(R.id.tv_item_name);
+            tvPrice = itemView.findViewById(R.id.tv_item_price);
             tvDetail = itemView.findViewById(R.id.tv_item_detail);
         }
     }
