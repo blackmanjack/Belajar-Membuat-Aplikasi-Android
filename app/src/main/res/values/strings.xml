@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="heroes_name">Nama Pahlawan</string>
+    <string name="app_name">Top 10 Big Income Football Players </string>
     <string name="detail">Detail</string>
-    <string name="price">Price</string>
+    <string name="Income">Income</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+    <string name="with_cardview">with CardView</string>
 </resources>

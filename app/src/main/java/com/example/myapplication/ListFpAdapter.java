@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,66 +14,65 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-public class ListHpAdapter extends RecyclerView.Adapter<ListHpAdapter.ListViewHolder> {
+public class ListFpAdapter extends RecyclerView.Adapter<ListFpAdapter.ListViewHolder> {
 
-    private Context context;
-    private ArrayList<Hp> listHp;
+    private ArrayList<Fp> listFp;
     private OnItemClickCallback onItemClickCallback;
 
     public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback;
     }
 
-    public ListHpAdapter(ArrayList<Hp> list) {
+    public ListFpAdapter(ArrayList<Fp> list) {
 
-        this.listHp = list;
+        this.listFp = list;
     }
 
     @NonNull
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_hp, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_fp, viewGroup, false);
         return new ListViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ListViewHolder holder, final int i) {
 
-        final Hp hp = listHp.get(i);
+        final Fp fp = listFp.get(i);
         Glide.with(holder.itemView.getContext())
-                .load(hp.getPhoto())
-                .apply(new RequestOptions().override(55, 55))
+                .load(fp.getPhoto())
+                .apply(new RequestOptions().override(60, 60))
                 .into(holder.imgPhoto);
-        holder.tvName.setText(hp.getName());
-        holder.tvDetail.setText(hp.getDetail());
-        holder.tvPrice.setText(hp.getPrice());
+        holder.tvName.setText(fp.getName());
+        holder.tvDetail.setText(fp.getDetail());
+        holder.tvIncome.setText(fp.getPrice());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClickCallback.onItemClicked(listHp.get(holder.getAdapterPosition()));
+                onItemClickCallback.onItemClicked(fp);
             }
         });
     }
 
     public interface OnItemClickCallback {
-        void onItemClicked(Hp data);
+        void onItemClicked(Fp data);
     }
 
     @Override
     public int getItemCount() {
-        return listHp.size();
+        return listFp.size();
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
-        TextView tvName, tvDetail, tvPrice;
+        TextView tvName, tvDetail, tvIncome;
 
         ListViewHolder(View itemView) {
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
             tvName = itemView.findViewById(R.id.tv_item_name);
-            tvPrice = itemView.findViewById(R.id.tv_item_price);
+            tvIncome = itemView.findViewById(R.id.tv_item_income);
             tvDetail = itemView.findViewById(R.id.tv_item_detail);
         }
     }

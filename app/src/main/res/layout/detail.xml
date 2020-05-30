@@ -1,55 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="100">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/img_item_photo"
-        android:layout_width="match_parent"
-        android:layout_height="270dp"
-        android:scaleType="centerCrop"
-        android:background="@color/colorAccent"
-        tools:ignore="ContentDescription" />
-
-    <TextView
+    <LinearLayout android:id="@+id/lin"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="391dp"
-        android:textSize="23sp"
-        android:text="@string/heroes_name" />
+        android:padding="15dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="355dp"
-        android:text="@string/detail"
-        android:textSize="19sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="309dp"
-        android:text="@string/price"
-        android:textSize="19sp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="160dp"
-        android:layout_marginEnd="163dp"
-        android:layout_marginBottom="103dp"
-        android:text="Buy" />
+            <ImageView
+                android:id="@+id/img_item_photo"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                tools:src="@android:color/darker_gray" />
 
 
-</RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lin"
+            android:paddingTop="20dp"
+            tools:text="Name"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_item_pricee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lin"
+            android:paddingTop="20dp"
+            tools:text="Price"
+            android:textSize="19sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_item_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lin"
+            android:paddingTop="20dp"
+            tools:text="Description"
+            android:textSize="16sp"
+            />
+
+        <Button
+            android:id="@+id/btn_fav"
+            android:layout_width="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/ic_favorite"
+            android:drawableTint="@color/pink"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white"
+            android:text="favorite" />
+
+
+    </LinearLayout>
+</ScrollView>

@@ -9,5 +9,5 @@
         android:id="@+id/rv_hp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/list_item_hp" />
+        tools:listitem="@layout/list_item_fp" />
 </RelativeLayout>
